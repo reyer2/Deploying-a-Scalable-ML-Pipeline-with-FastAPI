@@ -1,17 +1,15 @@
 import json
-
 import requests
 
-# TODO: send a GET using the URL http://127.0.0.1:8000
-r = None # Your code here
+# URL of the running FastAPI server
+url = "http://127.0.0.1:8000"
 
-# TODO: print the status code
-# print()
-# TODO: print the welcome message
-# print()
+# GET request
+r = requests.get(url)
+print("Status Code:", r.status_code)
+print("Result:", r.json()["message"])
 
-
-
+# Sample data for POST request
 data = {
     "age": 37,
     "workclass": "Private",
@@ -29,10 +27,8 @@ data = {
     "native-country": "United-States",
 }
 
-# TODO: send a POST using the data above
-r = None # Your code here
+# POST request
+r = requests.post(url + "/data/", json=data)
+print("Status Code:", r.status_code)
+print("Result:", r.json()["result"])
 
-# TODO: print the status code
-# print()
-# TODO: print the result
-# print()
