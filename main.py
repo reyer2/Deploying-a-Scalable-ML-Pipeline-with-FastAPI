@@ -26,9 +26,9 @@ class Data(BaseModel):
     native_country: str = Field(..., example="United-States", alias="native-country")
 
 # Load the saved encoder and model only once
-encoder_path = os.path.join(os.path.dirname(__file__), "model/encoder.pkl")
-model_path = os.path.join(os.path.dirname(__file__), "model/model.pkl")
-
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+encoder_path = os.path.join(BASE_DIR, "model", "encoder.pkl")
+model_path = os.path.join(BASE_DIR, "model", "model.pkl")
 
 encoder, _, _ = load_model(encoder_path)
 model, _, _ = load_model(model_path)
