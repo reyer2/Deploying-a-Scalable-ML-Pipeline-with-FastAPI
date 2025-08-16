@@ -30,6 +30,9 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 encoder_path = os.path.join(BASE_DIR, "model", "encoder.pkl")
 model_path = os.path.join(BASE_DIR, "model", "model.pkl")
 
+print("Encoder path:", encoder_path)
+print("Model path:", model_path)
+
 encoder, _, _ = load_model(encoder_path)
 model, _, _ = load_model(model_path)
 
