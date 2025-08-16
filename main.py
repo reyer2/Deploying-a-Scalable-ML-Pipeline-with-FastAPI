@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import pathlib
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 
@@ -26,9 +27,9 @@ class Data(BaseModel):
     native_country: str = Field(..., example="United-States", alias="native-country")
 
 # Load the saved encoder and model only once
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-encoder_path = os.path.join(BASE_DIR, "model", "encoder.pkl")
-model_path = os.path.join(BASE_DIR, "model", "model.pkl")
+BASE_DIR = pathlib.Path.cwd()  # Current working directory
+encoder_path = BASE_DIR / "model" / "encoder.pkl"
+model_path = BASE_DIR / "model" / "model.pkl"
 
 print("Encoder path:", encoder_path)
 print("Model path:", model_path)
